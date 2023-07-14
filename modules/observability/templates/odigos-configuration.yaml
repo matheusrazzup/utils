@@ -1,0 +1,7 @@
+apiVersion: odigos.io/v1alpha1
+kind: OdigosConfiguration
+metadata:
+  name: odigos-config
+  namespace: odigos-system
+spec:
+  instrumentationMode: OPT_IN

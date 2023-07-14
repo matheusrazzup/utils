@@ -1,0 +1,17 @@
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: {{ .Values.provisionerName}}
+spec:
+  limits:
+    resources:
+      cpu: 1000
+  provider:
+    instanceProfile: {{ .Values.instanceProfileName }}
+    subnetSelector:
+      Name: {{ .Values.subnetSelector }}
+    securityGroupSelector:
+      Name: {{ .Values.sgSelector }}
+    tags:
+      provisioned-by-karpenter: "true"
+  ttlSecondsAfterEmpty: 30

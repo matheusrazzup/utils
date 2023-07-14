@@ -1,0 +1,32 @@
+schema-version: v1
+kind: plugin
+metadata:
+  name: metrics-server
+  display-name: metrics-server
+  description: This plugin is responsible for provisioning an metrics-server in kube-system
+  version: 0.0.3
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+  about: docs/about.md
+  implementation: docs/implementation.md
+  release-notes: docs/release-notes-0.0.1.md
+  requirements: docs/requirements.md
+  technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+    - Api
+  requires:
+    connection-interface:
+      - aws-eks-conn
+  inputs:
+  - label: Name
+    type: text
+    name: name
+    required: false
+    default: metrics-server
+  - label: Domain
+    type: text
+    name: domain
+    default: idp
+    required: false
